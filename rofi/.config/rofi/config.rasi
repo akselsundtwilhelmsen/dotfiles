@@ -1,0 +1,23 @@
+configuration {
+    fullscreen: true;
+	dpi: 72;
+}
+
+window {
+    anchor: center;
+    location: center;
+}
+
+listview {
+    lines: 10;
+    cycle: false;
+    dynamic: false;
+}
+
+element {
+    horizontal-align: 0.5;  /* 0.5 is center, 0 is left, 1 is right */
+    vertical-align: 0.5;
+    padding: 10px;
+    font: "monospace 68";
+}
+@theme "/usr/share/rofi/themes/purple.rasi"
