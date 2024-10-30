@@ -5,7 +5,7 @@ set $right l
 
 set $term kitty
 
-set $wp ~/pics/wp/amber-d.jxl
+set $wp ~/pics/wp/1722773598057725.jpg
 
 set $mod Mod4
 font pango:monospace 8
@@ -18,7 +18,10 @@ exec --no-startup-id xset -b
 exec_always --no-startup-id feh --bg-fill $wp
 exec_always --no-startup-id setxkbmap -option ctrl:nocaps
 exec_always --no-startup-id picom
-exec_always --no-startup-id xinput set-prop 14 "libinput Natural Scrolling Enabled" 0
+exec_always --no-startup-id xinput set-prop "FTCS0038:00 2808:0106 Touchpad" "libinput Natural Scrolling Enabled" 1
+exec_always --no-startup-id xinput set-prop "FTCS0038:00 2808:0106 Touchpad" "libinput Tapping Enabled" 1
+# exec_always --no-startup-id xinput set-prop "FTCS0038:00 2808:0106 m" "libinput Natural Scrolling Enabled" 1
+# exec_always --no-startup-id xinput set-prop "FTCS0038:00 2808:0106 Touchpad" "libinput High Resolution Wheel Scroll Enabled (321)" 400
 
 # volume
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -28,13 +31,13 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # brightness
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10%
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +2%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 2%-
 
 # floating
 floating_modifier $mod
 bindsym $mod+d floating toggle
-# for_window [floating] border pixel 0
+for_window [floating] border pixel 0
 
 # applications
 bindsym $mod+Return exec $term
@@ -43,11 +46,19 @@ bindsym $mod+ctrl+p exec pavucontrol
 bindsym $mod+f exec firefox
 bindsym $mod+BackSpace exec i3lock -u -c 000000
 
+# screenshot
+# bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date)"
+# bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(date)"
+
+## Clipboard Screenshots
+bindsym $mod+p exec --no-startup-id maim | xclip -selection clipboard -t image/png
+bindsym $mod+Shift+p exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start rofi
-bindsym $mod+space exec --no-startup-id rofi -show drun
+bindsym $mod+space exec --no-startup-id rofi -show drun -theme .config/rofi/config.rasi
 
 # change focus
 bindsym $mod+$left focus left
@@ -138,7 +149,7 @@ bar {
     position top
     # font pango:Fira Code Bold 3
     font pango:Fira Code Bold 12
-    tray_output none
+    # tray_output none
     separator_symbol "|"
     colors {
         statusline #ffffff
@@ -163,7 +174,8 @@ for_window [class="^.*"] border pixel 2
 
 # monitors
 set $internal eDP-1
-set $external DP-2
+# set $external DP-2
+set $external HDMI-1-0
 bindsym $mod+m exec --no-startup-id xrandr --output $internal --off
 bindsym $mod+Shift+m exec --no-startup-id xrandr --output $internal --auto
 bindsym $mod+n exec --no-startup-id xrandr --output $external --off

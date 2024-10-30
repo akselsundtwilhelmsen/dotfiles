@@ -1,7 +1,8 @@
 return {
-  "nyoom-engineering/oxocarbon.nvim"
-  -- Add in any other configuration; 
-  --   event = foo, 
-  --   config = bar
-  --   end,
+  "nyoom-engineering/oxocarbon.nvim",
+  lazy = false, -- load during startup
+  priority = 1000, -- ensure it loads first
+  -- config = function()
+  --   vim.cmd([[colorscheme oxocarbon]])
+  -- end,
 }

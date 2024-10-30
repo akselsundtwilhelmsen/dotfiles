@@ -1,23 +1,24 @@
+* {
+    background-color: #00000000;
+	fullscreen: true;
+	font: "Fira Code Bold 16";
+}
+
 configuration {
-    fullscreen: true;
-	dpi: 72;
+  lines: 12;
+  // Center the window on the screen
+  location: 0;
+  
+  // Width and height of the window
+
+  // Disable the combi or run option
+  show-icons: false;
+
+  // Center the text
+  text-align: center;
 }
 
-window {
-    anchor: center;
-    location: center;
+element-text {
+    horizontal-align: 0.5; /* Centers text horizontally */
+    vertical-align: 0.5;   /* Centers text vertically */
 }
-
-listview {
-    lines: 10;
-    cycle: false;
-    dynamic: false;
-}
-
-element {
-    horizontal-align: 0.5;  /* 0.5 is center, 0 is left, 1 is right */
-    vertical-align: 0.5;
-    padding: 10px;
-    font: "monospace 68";
-}
-@theme "/usr/share/rofi/themes/purple.rasi"
