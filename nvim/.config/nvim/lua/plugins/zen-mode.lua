@@ -10,6 +10,7 @@ return {
             options = {
                 signcolumn = "no",
                 number = false,
+            	relativenumber = false,
             },
         },
         plugins = {

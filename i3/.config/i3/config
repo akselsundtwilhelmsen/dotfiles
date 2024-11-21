@@ -4,15 +4,15 @@ set $up k
 set $right l
 
 set $term kitty
-
-set $wp ~/pics/wp/1722773598057725.jpg
+set $wp ~/pics/wp/1728355737399632.jpg
+set $lock i3lock -u -c 000000
 
 set $mod Mod4
 font pango:monospace 8
 
 # Startup
 exec --no-startup-id dex --autostart --environment i3
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- $lock
 exec --no-startup-id nm-applet
 exec --no-startup-id xset -b
 exec_always --no-startup-id feh --bg-fill $wp
@@ -44,7 +44,7 @@ bindsym $mod+Return exec $term
 bindsym $mod+ctrl+b exec blueman-manager
 bindsym $mod+ctrl+p exec pavucontrol
 bindsym $mod+f exec firefox
-bindsym $mod+BackSpace exec i3lock -u -c 000000
+bindsym $mod+BackSpace exec $lock
 
 # screenshot
 # bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date)"
