@@ -3,8 +3,7 @@
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
-SAVEHIST=1000
-unsetopt beep
+SAVEHIST=1000 unsetopt beep
 setopt nolistbeep
 bindkey -v
 # End of lines configured by zsh-newuser-install
@@ -64,11 +63,26 @@ alias cd='z'
 alias r='ranger'
 alias feh='devour feh --zoom max --scale-down --image-bg black'
 alias code='code --enable-proposed-api ms-python.python,ms-toolsai.jupyter'
+#alias nvim='kitty @ set-colors background=#352939 ; nvim ; kitty @ set-colors background=#352939'
+alias nvim='~/scripts/nvim.sh'
 
-# autoload -Uz vcs_info
-# precmd_vcs_info() { vcs_info }
-# precmd_functions+=( precmd_vcs_info )
-# setopt prompt_subst
-# RPROMPT='${vcs_info_msg_0_}'
-# PROMPT='${vcs_info_msg_0_}%# '
-# zstyle ':vcs_info:git:*' formats '%b'
+# git info (other vcs?)
+setopt prompt_subst
+autoload -Uz vcs_info
+zstyle ":vcs_info:*" actionformats "%F{orange}[%b|%a]%f "
+zstyle ":vcs_info:*" formats "%F{#555555}[%b]%f "
+zstyle ":vcs_info:(sv[nk]|bzr):*" branchformat "%F{yellow}%b:%r%f"
+
+zstyle ":vcs_info:*" enable git cvs svn
+
+# or use pre_cmd, see man zshcontrib
+vcs_info_wrapper() {
+  vcs_info
+  if [ -n "$vcs_info_msg_0_" ]; then
+    echo "%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color%}$del"
+  fi
+}
+RPROMPT=$'$(vcs_info_wrapper)'
+
+# applications
+export IMAGE_VIEWER="feh --zoom max --scale-down --image-bg black"

@@ -41,3 +41,7 @@ autocmd({ "BufAdd", "VimEnter" }, {
 	end,
 	group = "Git",
 })
+
+-- color
+vim.cmd.colorscheme("catppuccin")
+vim.cmd([[set termguicolors]])

@@ -6,8 +6,8 @@ return {
     require("lualine").setup({
       options = {
         theme = "auto",  -- Automatically picks a theme based on your colorscheme
-        -- section_separators = { left = "", right = "" },
-        -- component_separators = { left = "", right = "" },
+        section_separators = { left = "", right = "" },
+        component_separators = { left = "", right = "" },
       },
       sections = {
         lualine_a = { "mode" },

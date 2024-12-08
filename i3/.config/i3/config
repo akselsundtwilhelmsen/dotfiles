@@ -4,7 +4,7 @@ set $up k
 set $right l
 
 set $term kitty
-set $wp ~/pics/wp/1728355737399632.jpg
+set $wp ~/pics/wp/branches.jpg
 set $lock i3lock -u -c 000000
 
 set $mod Mod4
@@ -38,6 +38,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 2%-
 floating_modifier $mod
 bindsym $mod+d floating toggle
 for_window [floating] border pixel 0
+for_window [tiling] border pixel 1
 
 # applications
 bindsym $mod+Return exec $term
@@ -51,8 +52,9 @@ bindsym $mod+BackSpace exec $lock
 # bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(date)"
 
 ## Clipboard Screenshots
-bindsym $mod+p exec --no-startup-id maim | xclip -selection clipboard -t image/png
+# bindsym $mod+p exec --no-startup-id maim | xclip -selection clipboard -t image/png
 bindsym $mod+Shift+p exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
+bindsym $mod+p exec --no-startup-id maim | xclip -selection clipboard -t image/png
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -164,12 +166,12 @@ bar {
 
 # colors
 # class                 border  backgr. text    indicator child_border
-client.focused          #ffffff #FFFFFF #FFFFFF #FFFFFF   #FFFFFF
-client.focused_inactive #ffffff #FFFFFF #FFFFFF #000000   #000000
+client.focused          #282828 #282828 #282828 #282828   #282828
+client.focused_inactive #282828 #282828 #282828 #000000   #000000
 client.unfocused        #000000 #000000 #000000 #000000   #000000
 client.urgent           #FF0000 #FF0000 #FF0000 #FF0000   #000000
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
-client.background       #ffffff
+client.placeholder      #000000 #0c0c0c #282828 #000000   #0c0c0c
+client.background       #282828
 for_window [class="^.*"] border pixel 2
 
 # monitors
@@ -190,4 +192,3 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-
