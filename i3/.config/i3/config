@@ -5,7 +5,7 @@ set $right l
 
 set $term kitty
 set $wp ~/pics/wp/branches.jpg
-set $lock i3lock -u -c 000000
+set $lock i3lock -c 000000
 
 set $mod Mod4
 font pango:monospace 8
@@ -166,22 +166,27 @@ bar {
 
 # colors
 # class                 border  backgr. text    indicator child_border
-client.focused          #282828 #282828 #282828 #282828   #282828
-client.focused_inactive #282828 #282828 #282828 #000000   #000000
+client.focused          #ffffff #ffffff #ffffff #ffffff   #ffffff
+client.focused_inactive #ffffff #ffffff #ffffff #000000   #000000
 client.unfocused        #000000 #000000 #000000 #000000   #000000
 client.urgent           #FF0000 #FF0000 #FF0000 #FF0000   #000000
-client.placeholder      #000000 #0c0c0c #282828 #000000   #0c0c0c
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #282828
 for_window [class="^.*"] border pixel 2
 
 # monitors
 set $internal eDP-1
-# set $external DP-2
-set $external HDMI-1-0
-bindsym $mod+m exec --no-startup-id xrandr --output $internal --off
-bindsym $mod+Shift+m exec --no-startup-id xrandr --output $internal --auto
-bindsym $mod+n exec --no-startup-id xrandr --output $external --off
-bindsym $mod+Shift+n exec --no-startup-id xrandr --output $external --auto
+bindsym $mod+Shift+comma  exec --no-startup-id xrandr --output $internal --off
+bindsym $mod+comma        exec --no-startup-id xrandr --output $internal --auto
+
+set $usbc DP-2
+bindsym $mod+Shift+period exec --no-startup-id xrandr --output $usbc --off
+bindsym $mod+period 	  exec --no-startup-id xrandr --output $usbc --auto
+
+set $hdmi HDMI-1-0
+bindsym $mod+Shift+minus  exec --no-startup-id xrandr --output $hdmi --off
+bindsym $mod+minus   	  exec --no-startup-id xrandr --output $hdmi --auto
+
 
 exec --no-startup-id xrandr --output $external --mode 3440x1440 --rate 119.96
 exec --no-startup-id xrandr --output $internal --mode 2560x1600 --rate 165
