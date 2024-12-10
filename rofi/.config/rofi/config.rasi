@@ -1,7 +1,6 @@
 * {
     background-color: #00000000;
 	font: "Fira Code Bold 16";
-	text-color: #FFFFFFFF;
 }
 
 configuration {
@@ -9,13 +8,14 @@ configuration {
 	location: 0;
 	show-icons: false;
 	text-align: center;
-	drun-display-format: "{name}";
-	enable-tab: true;
+	drun-display-format: "  {name}";
+	kb-element-next: "Tab";
 }
 
 element-text {
 	// horizontal-align: 0.5; /* Centers text horizontally */
     // vertical-align: 0.5;   /* Centers text vertically */
+	text-color: #FFFFFFFF;
 }
 
 element {
@@ -23,6 +23,10 @@ element {
     vertical-align: 0.5;   /* Centers text vertically */
 	spacing: 0;
 	orientation: vertical;
+}
+
+element selected {
+    background-color: #0000001B; /* Highlight color for selected item */
 }
 
 listview {
@@ -36,13 +40,19 @@ window {
 
 mainbox {
     //background-color: #0000FF;
-	padding: 40% 45% 40% 45%;
+	padding: 40% 40% 40% 40%;
 }
 
 inputbar {
     //background-color: #00FF00;
+	text-color: #FFFFFFFF;
 }
 
 prompt {
     //background-color: #FF0000;
+	text-color: #FFFFFFFF;
+}
+
+entry {
+    text-color: #ffffff;
 }

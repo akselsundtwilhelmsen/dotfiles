@@ -9,14 +9,14 @@ offset = (0, 26)
 ignore_duplicate = true
 
 [urgency_low]
-background =  "#FFFFFF0B"
+background =  "#88888840"
 foreground =  "#FFFFFFFF"
-frame_color = "#FFFFFF0B"
+frame_color = "#88888840"
 
 [urgency_normal]
-background =  "#FFFFFF0B"
+background =  "#88888840"
 foreground =  "#FFFFFFFF"
-frame_color = "#FFFFFF0B"
+frame_color = "#88888840"
 
 [urgency_critical]
 background =  "#fc493dFF"
