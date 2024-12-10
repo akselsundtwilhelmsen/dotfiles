@@ -18,6 +18,8 @@ exec --no-startup-id xset -b
 exec_always --no-startup-id feh --bg-fill $wp
 exec_always --no-startup-id setxkbmap -option ctrl:nocaps
 exec_always --no-startup-id picom
+exec_always --no-startup-id pkill dunst
+exec_always --no-startup-id dunst
 exec_always --no-startup-id xinput set-prop "FTCS0038:00 2808:0106 Touchpad" "libinput Natural Scrolling Enabled" 1
 exec_always --no-startup-id xinput set-prop "FTCS0038:00 2808:0106 Touchpad" "libinput Tapping Enabled" 1
 # exec_always --no-startup-id xinput set-prop "FTCS0038:00 2808:0106 m" "libinput Natural Scrolling Enabled" 1
@@ -55,6 +57,20 @@ bindsym $mod+BackSpace exec $lock
 # bindsym $mod+p exec --no-startup-id maim | xclip -selection clipboard -t image/png
 bindsym $mod+Shift+p exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 bindsym $mod+p exec --no-startup-id maim | xclip -selection clipboard -t image/png
+
+# notifications
+bindsym $mod+Escape exec dunstctl close-all
+bindsym $mod+apostrophe exec --no-startup-id ~/scripts/notifystatus.sh
+bindsym $mod+Shift+apostrophe exec --no-startup-id notify-send -h string:x-dunst-stack-tag:anime "⣿⣿⣿⡷⠊⡢⡹⣦⡑⢂⢕⢂⢕⢂⢕⢂⠕⠔⠌⠝⠛⠶⠶⢶⣦⣄⢂⢕⢂⢕\
+																								  ⣿⣿⠏⣠⣾⣦⡐⢌⢿⣷⣦⣅⡑⠕⠡⠐⢿⠿⣛⠟⠛⠛⠛⠛⠡⢷⡈⢂⢕⢂\
+																								  ⠟⣡⣾⣿⣿⣿⣿⣦⣑⠝⢿⣿⣿⣿⣿⣿⡵⢁⣤⣶⣶⣿⢿⢿⢿⡟⢻⣤⢑⢂\
+																								  ⣾⣿⣿⡿⢟⣛⣻⣿⣿⣿⣦⣬⣙⣻⣿⣿⣷⣿⣿⢟⢝⢕⢕⢕⢕⢽⣿⣿⣷⣔\
+																								  ⣿⣿⠵⠚⠉⢀⣀⣀⣈⣿⣿⣿⣿⣿⣿⣿⣿⣿⣗⢕⢕⢕⢕⢕⢕⣽⣿⣿⣿⣿\
+																								  ⢷⣂⣠⣴⣾⡿⡿⡻⡻⣿⣿⣴⣿⣿⣿⣿⣿⣿⣷⣵⣵⣵⣷⣿⣿⣿⣿⣿⣿⡿\
+																								  ⢌⠻⣿⡿⡫⡪⡪⡪⡪⣺⣿⣿⣿⣿⣿⠿⠿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃\
+																								  ⠣⡁⠹⡪⡪⡪⡪⣪⣾⣿⣿⣿⣿⠋⠐⢉⢍⢄⢌⠻⣿⣿⣿⣿⣿⣿⣿⣿⠏⠈\
+																								  ⡣⡘⢄⠙⣾⣾⣾⣿⣿⣿⣿⣿⣿⡀⢐⢕⢕⢕⢕⢕⡘⣿⣿⣿⣿⣿⣿⠏⠠⠈\
+																								  ⠌⢊⢂⢣⠹⣿⣿⣿⣿⣿⣿⣿⣿⣧⢐⢕⢕⢕⢕⢕⢅⣿⣿⣿⣿⡿⢋⢜⠠"
 
 # kill focused window
 bindsym $mod+Shift+q kill
