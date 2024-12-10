@@ -1,24 +1,48 @@
 * {
     background-color: #00000000;
-	fullscreen: true;
 	font: "Fira Code Bold 16";
+	text-color: #FFFFFFFF;
 }
 
 configuration {
-  lines: 12;
-  // Center the window on the screen
-  location: 0;
-  
-  // Width and height of the window
-
-  // Disable the combi or run option
-  show-icons: false;
-
-  // Center the text
-  text-align: center;
+	lines: 3;
+	location: 0;
+	show-icons: false;
+	text-align: center;
+	drun-display-format: "{name}";
+	enable-tab: true;
 }
 
 element-text {
+	// horizontal-align: 0.5; /* Centers text horizontally */
+    // vertical-align: 0.5;   /* Centers text vertically */
+}
+
+element {
     horizontal-align: 0.5; /* Centers text horizontally */
     vertical-align: 0.5;   /* Centers text vertically */
+	spacing: 0;
+	orientation: vertical;
+}
+
+listview {
+}
+
+window {
+	width: 100%;
+	height: 100%;
+    background-color: #00000040;
+}
+
+mainbox {
+    //background-color: #0000FF;
+	padding: 40% 45% 40% 45%;
+}
+
+inputbar {
+    //background-color: #00FF00;
+}
+
+prompt {
+    //background-color: #FF0000;
 }

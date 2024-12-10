@@ -63,16 +63,15 @@ alias cd='z'
 alias r='ranger'
 alias feh='devour feh --zoom max --scale-down --image-bg black'
 alias code='code --enable-proposed-api ms-python.python,ms-toolsai.jupyter'
-#alias nvim='kitty @ set-colors background=#352939 ; nvim ; kitty @ set-colors background=#352939'
 alias nvim='~/scripts/nvim.sh'
+alias pacman='~/scripts/pacman.sh'
 
-# git info (other vcs?)
+# git info 
 setopt prompt_subst
 autoload -Uz vcs_info
 zstyle ":vcs_info:*" actionformats "%F{orange}[%b|%a]%f "
 zstyle ":vcs_info:*" formats "%F{#555555}[%b]%f "
 zstyle ":vcs_info:(sv[nk]|bzr):*" branchformat "%F{yellow}%b:%r%f"
-
 zstyle ":vcs_info:*" enable git cvs svn
 
 # or use pre_cmd, see man zshcontrib

@@ -39,10 +39,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 2%-
 # floating
 floating_modifier $mod
 bindsym $mod+d floating toggle
-for_window [floating] border pixel 0
-for_window [tiling] border pixel 1
-
-# applications
+for_window [floating] border pixel 0 for_window [tiling] border pixel 1 # applications
 bindsym $mod+Return exec $term
 bindsym $mod+ctrl+b exec blueman-manager
 bindsym $mod+ctrl+p exec pavucontrol
@@ -61,22 +58,13 @@ bindsym $mod+p exec --no-startup-id maim | xclip -selection clipboard -t image/p
 # notifications
 bindsym $mod+Escape exec dunstctl close-all
 bindsym $mod+apostrophe exec --no-startup-id ~/scripts/notifystatus.sh
-bindsym $mod+Shift+apostrophe exec --no-startup-id notify-send -h string:x-dunst-stack-tag:anime "⣿⣿⣿⡷⠊⡢⡹⣦⡑⢂⢕⢂⢕⢂⢕⢂⠕⠔⠌⠝⠛⠶⠶⢶⣦⣄⢂⢕⢂⢕\
-																								  ⣿⣿⠏⣠⣾⣦⡐⢌⢿⣷⣦⣅⡑⠕⠡⠐⢿⠿⣛⠟⠛⠛⠛⠛⠡⢷⡈⢂⢕⢂\
-																								  ⠟⣡⣾⣿⣿⣿⣿⣦⣑⠝⢿⣿⣿⣿⣿⣿⡵⢁⣤⣶⣶⣿⢿⢿⢿⡟⢻⣤⢑⢂\
-																								  ⣾⣿⣿⡿⢟⣛⣻⣿⣿⣿⣦⣬⣙⣻⣿⣿⣷⣿⣿⢟⢝⢕⢕⢕⢕⢽⣿⣿⣷⣔\
-																								  ⣿⣿⠵⠚⠉⢀⣀⣀⣈⣿⣿⣿⣿⣿⣿⣿⣿⣿⣗⢕⢕⢕⢕⢕⢕⣽⣿⣿⣿⣿\
-																								  ⢷⣂⣠⣴⣾⡿⡿⡻⡻⣿⣿⣴⣿⣿⣿⣿⣿⣿⣷⣵⣵⣵⣷⣿⣿⣿⣿⣿⣿⡿\
-																								  ⢌⠻⣿⡿⡫⡪⡪⡪⡪⣺⣿⣿⣿⣿⣿⠿⠿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃\
-																								  ⠣⡁⠹⡪⡪⡪⡪⣪⣾⣿⣿⣿⣿⠋⠐⢉⢍⢄⢌⠻⣿⣿⣿⣿⣿⣿⣿⣿⠏⠈\
-																								  ⡣⡘⢄⠙⣾⣾⣾⣿⣿⣿⣿⣿⣿⡀⢐⢕⢕⢕⢕⢕⡘⣿⣿⣿⣿⣿⣿⠏⠠⠈\
-																								  ⠌⢊⢂⢣⠹⣿⣿⣿⣿⣿⣿⣿⣿⣧⢐⢕⢕⢕⢕⢕⢅⣿⣿⣿⣿⡿⢋⢜⠠"
+bindsym $mod+Shift+apostrophe exec --no-startup-id ~/scripts/blush.sh
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start rofi
-bindsym $mod+space exec --no-startup-id rofi -show drun -theme .config/rofi/config.rasi
+bindsym $mod+space exec --no-startup-id rofi -show drun -theme .config/rofi/config.rasi -display-drun "> " -width 50
 
 # change focus
 bindsym $mod+$left focus left
