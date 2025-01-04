@@ -5,6 +5,7 @@ set $right l
 
 set $term kitty
 set $wp ~/pics/wp/branches.jpg
+set $wp ~/pics/2024-trondheim/DSCF6983.JPG
 set $lock i3lock -c 000000
 
 set $mod Mod4
@@ -22,6 +23,7 @@ exec_always --no-startup-id pkill dunst
 exec_always --no-startup-id dunst
 exec_always --no-startup-id xinput set-prop "FTCS0038:00 2808:0106 Touchpad" "libinput Natural Scrolling Enabled" 1
 exec_always --no-startup-id xinput set-prop "FTCS0038:00 2808:0106 Touchpad" "libinput Tapping Enabled" 1
+# exec_always --no-startup-id ~/scripts/restartpulse.sh
 # exec_always --no-startup-id xinput set-prop "FTCS0038:00 2808:0106 m" "libinput Natural Scrolling Enabled" 1
 # exec_always --no-startup-id xinput set-prop "FTCS0038:00 2808:0106 Touchpad" "libinput High Resolution Wheel Scroll Enabled (321)" 400
 
@@ -44,7 +46,10 @@ bindsym $mod+Return exec $term
 bindsym $mod+ctrl+b exec blueman-manager
 bindsym $mod+ctrl+p exec pavucontrol
 bindsym $mod+f exec firefox
+
+# locking
 bindsym $mod+BackSpace exec $lock
+bindsym $mod+Shift+BackSpace exec systemctl suspend
 
 # screenshot
 # bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date)"
@@ -52,8 +57,10 @@ bindsym $mod+BackSpace exec $lock
 
 ## Clipboard Screenshots
 # bindsym $mod+p exec --no-startup-id maim | xclip -selection clipboard -t image/png
-bindsym $mod+Shift+p exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
-bindsym $mod+p exec --no-startup-id maim | xclip -selection clipboard -t image/png
+# bindsym $mod+Shift+p exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
+# bindsym $mod+p       exec --no-startup-id maim | xclip -selection clipboard -t image/png
+bindsym $mod+Shift+p exec --no-startup-id ~/scripts/screenshot.sh select
+bindsym $mod+p       exec --no-startup-id ~/scripts/screenshot.sh
 
 # notifications
 bindsym $mod+Escape exec dunstctl close-all
@@ -174,11 +181,11 @@ bar {
 
 # colors
 # class                 border  backgr. text    indicator child_border
-client.focused          #ffffff #ffffff #ffffff #ffffff   #ffffff
-client.focused_inactive #ffffff #ffffff #ffffff #000000   #000000
+client.focused          #444242 #444242 #444242 #444242   #444242
+client.focused_inactive #444242 #444242 #444242 #000000   #000000
 client.unfocused        #000000 #000000 #000000 #000000   #000000
-client.urgent           #FC493D #FC493D #FC493D #FFFFFF   #000000
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+client.urgent           #fc493d #fc493d #fc493d #444242   #000000
+client.placeholder      #000000 #0c0c0c #444242 #000000   #0c0c0c
 client.background       #282828
 for_window [class="^.*"] border pixel 2
 

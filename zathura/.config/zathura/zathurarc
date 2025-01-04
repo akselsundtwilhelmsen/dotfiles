@@ -1,2 +1,2 @@
-# set selection-clipboard none
+set selection-clipboard none
 set guioptions ""

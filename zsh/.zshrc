@@ -65,6 +65,7 @@ alias feh='devour feh --zoom max --scale-down --image-bg black'
 alias code='code --enable-proposed-api ms-python.python,ms-toolsai.jupyter'
 alias nvim='~/scripts/nvim.sh'
 alias pacman='~/scripts/pacman.sh'
+alias cb='xclip -selection c'
 
 # git info 
 setopt prompt_subst
