@@ -1,12 +1,11 @@
-# ufetch
-
-# Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000 unsetopt beep
+HISTFILE=~/.zsh_history
+HISTSIZE=2000
+SAVEHIST=2000
+unsetopt beep
+setopt append_history
+setopt inc_append_history
 setopt nolistbeep
 bindkey -v
-# End of lines configured by zsh-newuser-install
 
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/aksel/.zshrc'
@@ -66,6 +65,7 @@ alias code='code --enable-proposed-api ms-python.python,ms-toolsai.jupyter'
 alias nvim='~/scripts/nvim.sh'
 alias pacman='~/scripts/pacman.sh'
 alias cb='xclip -selection c'
+alias space='du -ah | sort -h'
 
 # git info 
 setopt prompt_subst

@@ -5,7 +5,7 @@ set $right l
 
 set $term kitty
 set $wp ~/pics/wp/branches.jpg
-set $wp ~/pics/2024-trondheim/DSCF6983.JPG
+set $wp ~/pics/23-newyork/DSCF3461.JPG
 set $lock i3lock -c 000000
 
 set $mod Mod4
