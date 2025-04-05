@@ -5,7 +5,7 @@ set $right l
 
 set $term kitty
 set $wp ~/pics/wp/branches.jpg
-set $wp ~/pics/23-newyork/DSCF3461.JPG
+set $wp ~/pics/24-stavanger/DSCF6633.JPG
 set $lock i3lock -c 000000
 
 set $mod Mod4
@@ -19,6 +19,8 @@ exec --no-startup-id xset -b
 exec_always --no-startup-id feh --bg-fill $wp
 exec_always --no-startup-id setxkbmap -option ctrl:nocaps
 exec_always --no-startup-id picom
+exec_always --no-startup-id xset s off
+exec_always --no-startup-id xset -dpms
 exec_always --no-startup-id pkill dunst
 exec_always --no-startup-id dunst
 exec_always --no-startup-id xinput set-prop "FTCS0038:00 2808:0106 Touchpad" "libinput Natural Scrolling Enabled" 1
@@ -29,10 +31,15 @@ exec_always --no-startup-id xinput set-prop "FTCS0038:00 2808:0106 Touchpad" "li
 
 # volume
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +4% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -4% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +4% && $refresh_i3status
+# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -4% && $refresh_i3status
+# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+# bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 4%+ && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 4%- && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle && $refresh_i3status
 
 # brightness
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +2%
@@ -64,8 +71,8 @@ bindsym $mod+p       exec --no-startup-id ~/scripts/screenshot.sh
 
 # notifications
 bindsym $mod+Escape exec dunstctl close-all
-bindsym $mod+apostrophe exec --no-startup-id ~/scripts/notifystatus.sh
-bindsym $mod+Shift+apostrophe exec --no-startup-id ~/scripts/blush.sh
+bindsym $mod+apostrophe exec --no-startup-id ~/scripts/notifycal.sh
+bindsym $mod+Shift+apostrophe exec --no-startup-id ~/scripts/notifytodo.sh
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -181,13 +188,13 @@ bar {
 
 # colors
 # class                 border  backgr. text    indicator child_border
-client.focused          #444242 #444242 #444242 #444242   #444242
-client.focused_inactive #444242 #444242 #444242 #000000   #000000
+client.focused          #FFFFFF #FFFFFF #FFFFFF #FFFFFF   #FFFFFF
+client.focused_inactive #FFFFFF #FFFFFF #FFFFFF #000000   #000000
 client.unfocused        #000000 #000000 #000000 #000000   #000000
-client.urgent           #fc493d #fc493d #fc493d #444242   #000000
-client.placeholder      #000000 #0c0c0c #444242 #000000   #0c0c0c
+client.urgent           #fc493d #fc493d #fc493d #FFFFFF   #000000
+client.placeholder      #000000 #0c0c0c #FFFFFF #000000   #0c0c0c
 client.background       #282828
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 1
 
 # monitors
 set $internal eDP-1
@@ -196,11 +203,11 @@ bindsym $mod+comma        exec --no-startup-id xrandr --output $internal --auto
 
 set $usbc DP-2
 bindsym $mod+Shift+period exec --no-startup-id xrandr --output $usbc --off
-bindsym $mod+period 	  exec --no-startup-id xrandr --output $usbc --auto
+bindsym $mod+period 	  exec --no-startup-id xrandr --output $usbc --auto --above eDP-1
 
 set $hdmi HDMI-1-0
-bindsym $mod+Shift+minus  exec --no-startup-id xrandr --output $hdmi --off
-bindsym $mod+minus   	  exec --no-startup-id xrandr --output $hdmi --auto
+bindsym $mod+Shift+minus  exec --no-startup-id xrandr --output $hdmi --off 
+bindsym $mod+minus   	  exec --no-startup-id xrandr --output $hdmi --auto --above eDP-1
 
 
 exec --no-startup-id xrandr --output $external --mode 3440x1440 --rate 119.96

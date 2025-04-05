@@ -57,7 +57,13 @@ alias p3="python3"
 alias ls="ls --color=auto"
 alias grep='grep --color=auto -ni'
 alias zat='devour zathura'
-alias l='tree'
+alias l='tree -h -a'
+alias l1='tree -h -a -L 1'
+alias l2='tree -h -a -L 2'
+alias l3='tree -h -a -L 3'
+alias l4='tree -h -a -L 4'
+alias l5='tree -h -a -L 5'
+alias l6='tree -h -a -L 6'
 alias cd='z'
 alias r='ranger'
 alias feh='devour feh --zoom max --scale-down --image-bg black'
@@ -66,6 +72,10 @@ alias nvim='~/scripts/nvim.sh'
 alias pacman='~/scripts/pacman.sh'
 alias cb='xclip -selection c'
 alias space='du -ah | sort -h'
+alias vpnhome='sudo wg-quick down /etc/wireguard/aksel-laptop.conf && sudo wg-quick up /etc/wireguard/aksel-laptop.conf'
+alias todo='nvim ~/uni/todo'
+alias cat='bat'
+alias paclist='expac -H M "%011m\t%-20n\t%10d" $(pacman -Qq) | sort -n'
 
 # git info 
 setopt prompt_subst
